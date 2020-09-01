@@ -11,7 +11,7 @@ module.exports = function override(config, env) {
         loader: require.resolve('css-loader'),
         options: {
           modules: {
-               localIdentName: '[local]--[hash:base64:5]'
+               localIdentName: '[local]'
           },
         },
       },
