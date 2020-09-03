@@ -5,7 +5,7 @@ import "./style/index.less";
     size: large | middle | small
 */
 function Button(props){
-    let {type="default", size="middle",onClick = null, className="",href="",children,htmlType="button",style=null} = props;
+    let {type="default", size="middle", className="",href="",children,htmlType="button",...reset} = props;
 
     // class处理
     className += " kkb-btn";
@@ -16,7 +16,7 @@ function Button(props){
     className = className.trim();
     function LinkRender(){
         let {target="_self"} = props;
-        return <a className={className} href={href} target={target} onClick={onClick} style={style}>
+        return <a className={className} href={href} target={target} {...reset}>
             <span>{children}</span>
         </a>
     }
@@ -24,7 +24,7 @@ function Button(props){
         if(href !== ""){
             return LinkRender()
         } else {
-            return <button type={htmlType} className={className} onClick={onClick} style={style}><span>{children}</span></button>
+            return <button type={htmlType} className={className} {...reset}><span>{children}</span></button>
         }
     }
     return render();
